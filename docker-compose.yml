@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  crudapi:
+    build: 
+      context: .
+      dockerfile: Dockerfile 
+    ports:
+      - "5164:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING} # use the env connection string
+    volumes:
+      - .:/app # mount the local directory to the container (for development purpose)
+    networks:
+      - crudapi-network
+
+networks:
+  crudapi-network:
+    driver: bridge 
