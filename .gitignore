@@ -56,6 +56,9 @@ ipch/
 *.vsp
 *.vspx
 
+Migrations/ 
+
+.env
 # Guidance Automation Toolkit
 *.gpState
 
